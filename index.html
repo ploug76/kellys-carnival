@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Kelly's Carnival</title>
+<meta name="description" content="Kelly's Carnival: milk bottle toss, ring toss, balloon darts, duck pond, hoop shot, Skee-Ball, whack-a-mole and the high striker. Win tickets and fill the prize shelf!">
+<meta name="theme-color" content="#3b1a5a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Kelly's Carnival">
+<meta property="og:title" content="Kelly's Carnival"><meta property="og:image" content="https://ploug76.github.io/kellys-carnival/cover.jpg">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/lilita.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<div id="app">
+  <canvas id="c"></canvas>
+
+  <section id="intro" class="screen">
+    <div class="introArt"></div>
+    <div class="introCard">
+      <h1 class="logo">Kelly's <span>Carnival</span></h1>
+      <p id="storyText"></p>
+      <div class="row">
+        <button class="btn ghost" id="skipBtn">Skip ⏭</button>
+        <button class="btn go" id="nextBtn">Next ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="hub" class="screen hidden">
+    <header class="hubTop">
+      <h1 class="logo small">Kelly's <span>Carnival</span></h1>
+      <div class="tix" id="hubTix">🎟️ <b>0</b></div>
+      <button class="iconBtn" id="muteBtn" aria-label="Sound">🔊</button>
+    </header>
+    <div class="bulbs"></div>
+    <div id="boothGrid"></div>
+    <button class="btn prizeBtn" id="prizeBtn">🧸 Prize Counter</button>
+    <div class="shelfMini" id="shelfMini"></div>
+  </section>
+
+  <section id="prizes" class="screen hidden">
+    <header class="hubTop">
+      <button class="btn ghost sm" id="prizeBack">◀ Midway</button>
+      <h2 class="logo small">Prize Counter</h2>
+      <div class="tix" id="prizeTix">🎟️ <b>0</b></div>
+    </header>
+    <div id="prizeList"></div>
+    <h3 class="shelfTitle">Kelly's Prize Shelf</h3>
+    <div class="shelf" id="shelf"></div>
+  </section>
+
+  <div id="playHud" class="hidden">
+    <button class="pill" id="exitBtn">✕ Midway</button>
+  </div>
+
+  <section id="howto" class="overlay hidden">
+    <div class="card">
+      <div class="booIcon" id="howIcon"></div>
+      <h2 id="howTitle"></h2>
+      <p id="howText"></p>
+      <p class="best" id="howBest"></p>
+      <div class="row">
+        <button class="btn ghost" id="howSkip">Skip ⏭</button>
+        <button class="btn go" id="howGo">Play! ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="result" class="overlay hidden">
+    <div class="card">
+      <h2 id="resTitle">Nice!</h2>
+      <p id="resScore"></p>
+      <div class="ticketStrip"><div id="resTix">🎟️ +0</div></div>
+      <p class="best" id="resBest"></p>
+      <div class="row">
+        <button class="btn ghost" id="resHub">Midway</button>
+        <button class="btn go" id="resAgain">Play Again</button>
+      </div>
+    </div>
+  </section>
+
+  <div id="toast" class="hidden"></div>
+  <div class="tinyLogo">KC</div>
+</div>
+<script src="game.js?v=1"></script>
+<script>if('serviceWorker' in navigator){addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}))}</script>
+</body>
+</html>
